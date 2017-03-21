@@ -1,0 +1,26 @@
+{
+  "name": "vue-demo",
+  "version": "1.0.0",
+  "description": "vue学习笔记",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ly272864/vue-demo.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "luoyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ly272864/vue-demo/issues"
+  },
+  "homepage": "https://github.com/ly272864/vue-demo#readme",
+  "dependencies": {
+    "vue": "^2.2.4",
+    "vue-resource": "^1.2.1"
+  }
+}
