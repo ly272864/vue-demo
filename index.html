@@ -19,12 +19,12 @@
 		<!-- / header end -->
 		
 		<!-- article start -->
-		<article id="article">		
+		<article id="article">
 			<section class="">
 				<ul class="list" id="product-list">
-					<li v-for="item in productList">
-						<div class="box">
-							<div class="fn-left imgbox"><img v-bind:src="item.productImage" alt="" /></div>
+					<li v-for="(item, index) in productList">
+						<a v-bind:href="item.produstLink + index" class="box">
+							<div class="fn-left imgbox"><img v-bind:src="item.productImage" v-bind:alt="item.productName" /></div>
 							<div class="box-content">
 								<h3 class="title">{{ item.productName }}</h3>
 								<p class="text">{{ item.productText }}</p>
@@ -33,8 +33,8 @@
 									<span class="source">商品来源：<i>{{ item.productSource }}</i></span>
 								</div>
 							</div>
-						</div>
-					</li>					
+						</a>
+					</li>
 				</ul>
 			</section>
 		</article>
