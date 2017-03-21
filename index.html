@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">	<!-- 规定视口区域大小为1:1且不允许缩放 -->
+	<meta name="apple-mobile-web-app-capable" content="yes"> <!-- IOS中Safari允许全屏浏览 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- IOS中Safari顶端状态条样式 -->
+	<meta content="telephone=no, address=no" name="format-detection"> <!-- 忽略IOS操作系统将五位或以上位数的数字识别成电话号码 -->
+	<meta name="author" content="taolue">
+	<title>Vue 学习笔记</title>	
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+	<!-- header start -->
+	<header id="header">
+		{{ title }}
+	</header>
+	<!-- / header end -->
+	
+	<!-- article start -->
+	<article id="article">		
+		<section class="">
+			<ul class="list" id="product-list">
+				<li v-for="">
+					<div class="box">
+						<div class="fn-left imgbox"><img src="https://gw3.alicdn.com/bao/uploaded/i8/TB1IZLVLpXXXXa2XFXXYXGcGpXX_M2.SS2_210x210.jpg" alt="" /></div>
+						<div class="box-content">
+							<h3 class="title">这里是商品的标题,商品标题会存在二行内容</h3>
+							<p class="text">这里是关于商品的描述信息，讲述商品如何如何的</p>
+							<div class="price-box">
+								<em class="fn-right price">¥<i>51.20</i></em>
+								<span class="source">商品来源：<i>天猫</i></span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="box">
+						<div class="fn-left imgbox"><img src="https://gw3.alicdn.com/bao/uploaded/i8/TB1IZLVLpXXXXa2XFXXYXGcGpXX_M2.SS2_210x210.jpg" alt="" /></div>						
+						<div class="box-content">
+							<h3 class="title">这里是商品的标题,商品标题会存在二行内容</h3>
+							<p class="text">这里是关于商品的描述信息，讲述商品如何如何的</p>
+							<div class="price-box">
+								<em class="fn-right price">¥<i>51.20</i></em>
+								<span class="source">商品来源：<i>天猫</i></span>								
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="box">
+						<div class="fn-left imgbox"><img src="https://gw3.alicdn.com/bao/uploaded/i8/TB1IZLVLpXXXXa2XFXXYXGcGpXX_M2.SS2_210x210.jpg" alt="" /></div>
+						<div class="box-content">
+							<h3 class="title">这里是商品的标题,商品标题会存在二行内容</h3>
+							<p class="text">这里是关于商品的描述信息，讲述商品如何如何的</p>
+							<div class="price-box">
+								<em class="fn-right price">¥<i>51.20</i></em>
+								<span class="source">商品来源：<i>天猫</i></span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="box">
+						<div class="fn-left imgbox"><img src="https://gw3.alicdn.com/bao/uploaded/i8/TB1IZLVLpXXXXa2XFXXYXGcGpXX_M2.SS2_210x210.jpg" alt="" /></div>
+						<div class="box-content">
+							<h3 class="title">这里是商品的标题,商品标题会存在二行内容</h3>
+							<p class="text">这里是关于商品的描述信息，讲述商品如何如何的</p>
+							<div class="price-box">
+								<em class="fn-right price">¥<i>51.20</i></em>
+								<span class="source">商品来源：<i>天猫</i></span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="box">
+						<div class="fn-left imgbox"><img src="https://gw3.alicdn.com/bao/uploaded/i8/TB1IZLVLpXXXXa2XFXXYXGcGpXX_M2.SS2_210x210.jpg" alt="" /></div>
+						<div class="box-content">
+							<h3 class="title">这里是商品的标题,商品标题会存在二行内容</h3>
+							<p class="text">这里是关于商品的描述信息，讲述商品如何如何的</p>
+							<div class="price-box">
+								<em class="fn-right price">¥<i>51.20</i></em>
+								<span class="source">商品来源：<i>天猫</i></span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>			
+		</section>		
+	</article>
+	<!-- / article end -->
+	
+	<!-- footer start -->
+	<footer id="footer">		
+		{{ text }}
+	</footer>
+	<!-- / footer end -->
+	
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-resource.js"></script>
+	<script type="text/javascript" src="js/main.js" ></script>
+	
+	<script type="text/javascript">
+		var header = new Vue({
+			el: "#header",
+			data: {
+				title: "一个简单的Vue.js demo"
+			}
+		});
+		
+		var footer = new Vue({
+			el:"#footer",
+			data: {
+				text: "尾部"
+			}
+		});
+		
+		var vm = new Vue({
+			el:"#product-list",
+			data: {
+				
+			},
+			methods: {
+				
+			}
+		});
+	</script>	
+</body>
+</html>
