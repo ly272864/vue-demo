@@ -30,10 +30,15 @@ let vm = new Vue({
 		// 修改商品数量
 		changeMoney: function(product, way) {
 			if(way > 0) {
-				product.productQuentity++
+				
+				product.productQuentity++				
 			} else {
 				
-				return product.productQuentity==1 ? product.productQuentity: product.productQuentity-- 
+				if( product.productQuentity == 1) {
+					product.productQuentity
+				} else {
+					product.productQuentity--
+				}
 			}
 		},
 		// 选中与取消选中
@@ -44,25 +49,14 @@ let vm = new Vue({
 				item.checked = !item.checked
 			}
 			
-//			var _this = this;
-			
 			var checkAllFlag = true;
-
-
-
-this.productList.forEach(function(item,index){
-
-
-
-    checkAllFlag = checkAllFlag && item.checked;
-
-
-
-});
-
-
-
-this.checkAllFlag = checkAllFlag
+			this.productList.forEach(function(item, index){
+				checkAllFlag = checkAllFlag && item.checked;
+			});
+			
+			this.checkAllFlag = checkAllFlag;
+			
+			calcTotalPrice();
 		},
 		
 		// 全选与取消全选
@@ -76,6 +70,15 @@ this.checkAllFlag = checkAllFlag
 					item.checked = _this.checkAllFlag;
 				}
 			})
+		},
+		
+		// 计算商品总价
+		calcTotalPrice: function () {
+			var _this = this;
+			totalMoney = 0;
+			this.productList.forEach(function(item, index){
+				_this.totalMoney += item.productPrice * item.productQuentity
+			});
 		}
 	}
 });
