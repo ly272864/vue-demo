@@ -20,7 +20,7 @@
 </head>
 <body class="checkout">
 	<div id="app">
-	    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	    <!--<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	        <defs>
 	            <symbol id="icon-add" viewBox="0 0 32 32">
 	                <title>add2</title>
@@ -43,7 +43,7 @@
 	                <path class="path1" d="M29.333 16c0-7.364-5.97-13.333-13.333-13.333s-13.333 5.97-13.333 13.333c0 7.364 5.97 13.333 13.333 13.333s13.333-5.97 13.333-13.333v0 0 0 0 0 0zM0 16c0-8.837 7.163-16 16-16s16 7.163 16 16c0 8.837-7.163 16-16 16s-16-7.163-16-16zM14.667 14.667v1.333h2.667v-10.667h-2.667v9.333zM24 18.667h1.333v-2.667h-10.667v2.667h9.333z"></path>
 	            </symbol>
 	        </defs>
-	    </svg>
+	    </svg>-->
 	
 	    <div class="container">
 	        <div class="cart">
@@ -74,7 +74,7 @@
 	                                </div>
 	                                <!-- 商品图片 -->
 	                                <div class="cart-item-pic">
-	                                    <img v-bind:src=" 'img/'+ item.productImage " alt="烟">
+	                                    <img v-bind:src=" 'img/'+ item.productImage " alt=" item.productName ">
 	                                </div>
 	                                <!-- 商品名称 -->
 	                                <div class="cart-item-title">
@@ -138,7 +138,7 @@
 	                </div>
 	                <div class="cart-foot-r">
 	                    <div class="item-total">
-	                        Item total: <span class="total-price">¥ {{ totalMoney | formatMoney() }}</span>
+	                        Item total: <span class="total-price">¥ {{ totalMoney | formatMoney }}</span>
 	                    </div>
 	                    <div class="next-btn-wrap">
 	                        <a href="address.html" class="btn btn--red">结账</a>
