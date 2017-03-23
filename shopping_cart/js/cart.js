@@ -3,7 +3,9 @@ let vm = new Vue({
 	data: {
 		totalMoney: 0,
 		productList: [],
-		checkAllFlag: false
+		checkAllFlag: false,
+		delFalg: false,
+		curProduct: {}
 	},
 	filters: {
 		formatMoney: function(value) {
@@ -34,12 +36,10 @@ let vm = new Vue({
 				product.productQuentity++				
 			} else {
 				
-				if( product.productQuentity == 1) {
-					product.productQuentity
-				} else {
-					product.productQuentity--
-				}
+				product.productQuentity == 1 ? product.productQuentity : product.productQuentity--
 			}
+			
+			this.calcTotalPrice();
 		},
 		// 选中与取消选中
 		selectedProduct: function(item) {
@@ -49,36 +49,52 @@ let vm = new Vue({
 				item.checked = !item.checked
 			}
 			
-			var checkAllFlag = true;
-			this.productList.forEach(function(item, index){
+			let checkAllFlag = true;
+			this.productList.forEach((item, index) => {
 				checkAllFlag = checkAllFlag && item.checked;
 			});
 			
 			this.checkAllFlag = checkAllFlag;
-			
-			calcTotalPrice();
+			this.calcTotalPrice();
 		},
 		
 		// 全选与取消全选
 		checkAll: function(flag) {
-			var _this = this;
+//			var _this = this;
 			this.checkAllFlag = flag;
-			this.productList.forEach(function(item, index) {
+			this.productList.forEach((item, index) => {
 				if(typeof item.checked == "undefined") {
-					_this.$set(item, "checked", _this.checkAllFlag);
+					this.$set(item, "checked", this.checkAllFlag);
 				} else {
-					item.checked = _this.checkAllFlag;
+					item.checked = this.checkAllFlag;
 				}
-			})
+			});
+			
+			this.calcTotalPrice();
 		},
 		
 		// 计算商品总价
 		calcTotalPrice: function () {
-			var _this = this;
-			totalMoney = 0;
-			this.productList.forEach(function(item, index){
-				_this.totalMoney += item.productPrice * item.productQuentity
+//			var _this = this;
+			this.totalMoney = 0;
+			this.productList.forEach((item, index) => {
+				if(item.checked) {
+					this.totalMoney += item.productPrice * item.productQuentity
+				}
 			});
+		},
+		
+		// 点击删除按钮
+		delConfirm: function(index) {
+			this.delFalg = true;
+			this.curProduct = index;			
+		},
+		
+		// 确认删除商品
+		delProduct: function () {
+			this.productList.splice(this.curProduct, 1);
+			this.delFalg = false;
+			this.calcTotalPrice();
 		}
 	}
 });
