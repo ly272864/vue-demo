@@ -2,7 +2,10 @@ var vm = new Vue({
 	el: ".container",
 	data: {
 		limitNum: 3,
-		addressList: []
+		addressList: [],
+		currentIndex: 0,
+		shippingMethod: 1,
+		delFalg: false
 	},
 	mounted: function(){
 		this.$nextTick(function(){
@@ -27,6 +30,23 @@ var vm = new Vue({
 		},
 		loadMore: function(){
 			this.limitNum = this.addressList.length;
+		},
+		setDefault: function(addressId) {
+			this.addressList.forEach((item, index) => {
+				if(item.addressId == addressId) {
+					item.isDefault = true;
+				} else {
+					item.isDefault = false;
+				}
+			})
+		},		
+		delConfirm: function(num){
+			this.delFalg = true;
+			this.$set(this,'delIndex', num); 
+		},
+		delAddress: function() {
+			this.addressList.splice(this.delIndex, 1);
+			this.delFalg = false;
 		}
 	}
 });

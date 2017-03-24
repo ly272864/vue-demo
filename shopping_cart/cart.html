@@ -141,7 +141,7 @@
 	                        Item total: <span class="total-price">¥ {{ totalMoney | formatMoney }}</span>
 	                    </div>
 	                    <div class="next-btn-wrap">
-	                        <a href="address.html" class="btn btn--red">结账</a>
+	                        <a :href="!!totalMoney ? 'address.html': '#'" class="btn btn--red">结账</a>
 	                    </div>
 	                </div>
 	            </div>
